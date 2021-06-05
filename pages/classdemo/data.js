@@ -1,4 +1,4 @@
-[
+const data = [
     {
       "id": 1,
       "title": "The Everyday Salad",
@@ -18,3 +18,5 @@
       "description": "Fear Risotto no more! This simple recipe is perfect for family dinners."
     }
   ]
+
+  export default data;
