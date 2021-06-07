@@ -1,68 +1,50 @@
-import styles from '../../styles/meal.module.css';
-import meals from '../meals-data'
-export default function MealsPage() {
-    // console.log('meals', meals);
-    return (
-<div>
-<section className={styles.meals_container}>
-<div className={styles.meal}>
+import styles from '../../styles/meal.module.css'
+import meals from './meals-data';
+import Head from 'next/head';
 
-<div id="meals" className="meals">
-        <div className="meal">
-          <img
-            src="https://www.themealdb.com/images/media/meals/1529446137.jpg"
-            alt="Egg Drop Soup"
-          />
-          <div className="meal-info" data-mealid="52955">
-            <h3>Egg Drop Soup</h3>
-          </div>
-        </div>
-
-        <div className="meal">
-          <img
-            src="https://www.themealdb.com/images/media/meals/2dsltq1560461468.jpg"
-            alt="Tuna and Egg Briks"
-          />
-          <div className="meal-info" data-mealid="52975">
-            <h3>Tuna and Egg Briks</h3>
-          </div>
-        </div>
-
-        <div className="meal">
-          <img
-            src="https://www.themealdb.com/images/media/meals/1550440197.jpg"
-            alt="Salmon Eggs Eggs Benedict"
-          />
-          <div className="meal-info" data-mealid="52962">
-            <h3>Salmon Eggs Eggs Benedict</h3>
-          </div>
-        </div>
-
-        <div className="meal">
-          <img
-            src="https://www.themealdb.com/images/media/meals/ysqrus1487425681.jpg"
-            alt="Roasted Eggplant With Tahini, Pine Nuts, and Lentils"
-          />
-          <div className="meal-info" data-mealid="52816">
-            <h3>Roasted Eggplant With Tahini, Pine Nuts, and Lentils</h3>
-          </div>
-        </div>
-
-        <div className="meal">
-          <img
-            src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
-            alt="Stovetop Eggplant With Harissa, Chickpeas, and Cumin Yogurt"
-          />
-          <div className="meal-info" data-mealid="52817">
-            <h3>Stovetop Eggplant With Harissa, Chickpeas, and Cumin Yogurt</h3>
-          </div>
-        </div>
-      </div>
-      <div id="single-meal"></div>  
-      
-      </div>
-      </section>
-      </div>
-      
-    );
+export default function meal() {
+  return (
+    <div>
+ <Head>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <title>Meals</title>
+ </Head>
+ <div className={styles.container}>
+ <h1 className={styles.title__main}>Meal Finder</h1>
+ <div className={styles['flex-box']}>
+ <form id="submit" className={styles.flex_box}>
+ <input type="text" id="search" placeholder="Search for meals or keywords" className={styles.input}/>
+ <button className={styles.btn__search} type="submit">
+ {/* <FontAwesomeIcon icon={faSearch} /> */}
+ <i className="fas fa-search"></i>
+ </button>
+ </form>
+ <button className={styles.btn__random} id="random">
+ {/* <FontAwesomeIcon icon={faRandom} /> */}
+ <i className='fas fa-random'></i>
+ </button>
+ </div>
+ <div id="result_heading" className={styles.title__search}><h1>Search Results for ' beef ' :</h1></div>
+ <div id="meals" className={styles.gallery}>
+ {meals.map((meals) => (
+ <Meal key={meals.id} title={meals.h3} image={meals.image}/>
+ ))}
+ </div>
+ </div>
+ </div>
+  )
 }
+
+
+function Meal({id, image, title}) {
+  return (
+  
+  <div className={styles['gallery-card']}>
+  <img className={styles['gallery-card__img']} src={image} alt={title} />
+  <div className={styles['gallery-card__details']} data_mealid={id}> 
+  <h2>{title}</h2>
+  </div>
+  </div>
+  
+  )
+ }
