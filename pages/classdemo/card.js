@@ -1,7 +1,7 @@
 import cards from '../data/data';
 import styles from '../../styles/Cards.module.scss';
 export default function CardsPage() {
-  // console.log('cards', cards);
+   console.log('cards', cards);
   return (
     <div>
       <section className={styles.card_container}>
