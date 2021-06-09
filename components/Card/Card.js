@@ -1,6 +1,6 @@
 import styles from './Card.module.scss'
 
-export default function Card({evt}) {
+export default function Card() {
     return (
         <div className={styles.cardContainer}>
             <div className={styles.card}>
