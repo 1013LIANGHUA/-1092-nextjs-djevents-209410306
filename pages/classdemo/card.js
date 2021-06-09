@@ -1,4 +1,4 @@
-import cards from './data';
+import cards from '../data/data';
 import styles from '../../styles/Cards.module.scss';
 export default function CardsPage() {
   // console.log('cards', cards);

@@ -1,5 +1,5 @@
 import styles from '../../styles/meal.module.css';
-//import meals from './meals-data';
+//import meals from '../data/meals-data';
 import Head from 'next/head';
 import { useState } from 'react';
 
