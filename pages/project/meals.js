@@ -3,7 +3,7 @@ import styles from '../../styles/meal.module.css';
 import Head from 'next/head';
 import { useState } from 'react';
 
-export default function meals() {
+export default function meals(
   const [input, setInput] = useState('');
   const [meals, setMeal] = useState([]);
 
