@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useState } from 'react';
  
 export default function meals() {
-  const [input, setInput] = useState('廖先生');
+  const [input, setInput] = useState('');
   const [meals, setMeal] = useState([]);
  
   const handleInput = (e) => {
