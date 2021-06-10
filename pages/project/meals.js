@@ -2,17 +2,17 @@ import styles from '../../styles/meal.module.css';
 //import meals from '../component/data/meals-data';
 import Head from 'next/head';
 import { useState } from 'react';
-
-export default function meals(
-  const [input, setInput] = useState('曾美');
+ 
+export default function meals() {
+  const [input, setInput] = useState('廖先生');
   const [meals, setMeal] = useState([]);
-
+ 
   const handleInput = (e) => {
     setInput(e.target.value);
   };
-
+ 
   console.log(input);
-
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`)
@@ -23,7 +23,7 @@ export default function meals(
         setMeal(res.meals);
       });
   };
-
+ 
   return (
     <div>
       <Head>
@@ -77,7 +77,7 @@ export default function meals(
     </div>
   );
 }
-
+ 
 function Meal({ id, image, title }) {
   return (
     <div className={styles['gallery-card']}>
